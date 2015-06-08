@@ -201,7 +201,7 @@ public interface HasarConstants
 	//// ESTADO DE IMPRESORA /////////////////
 
 	///** Impresora ocupada. (Bit 0 del estado de impresora) */
-	//public int PST_PRINTER_BUSY               = 0x0001;
+	public int PST_PRINTER_BUSY               = 0x0001;
 
 	//public int PST_BIT_1                      = 0x0002;
 

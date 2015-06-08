@@ -1,8 +1,12 @@
 package com.taliter.fiscal.port.serial;
 
+import gnu.io.*;
+import gnu.io.CommPortIdentifier;
+import gnu.io.PortInUseException;
+import gnu.io.UnsupportedCommOperationException;
+
 import java.io.*;
 import java.util.*;
-import javax.comm.*;
 
 import com.taliter.fiscal.port.*;
 
@@ -14,19 +18,20 @@ public class SerialFiscalPort implements FiscalPort
 
 	/** Get an alphabetically sorted set of available serial port names. */
 
-	public static SortedSet getPortNames()
-	{
-		SortedSet s = new TreeSet();
-		Enumeration e = CommPortIdentifier.getPortIdentifiers();
-		while (e.hasMoreElements())
-		{
-			CommPortIdentifier i = (CommPortIdentifier) e.nextElement();
-			if (i.getPortType() == CommPortIdentifier.PORT_SERIAL) s.add(i.getName());
-		}
-		return s;
-	}
+//	public static SortedSet<CommPortIdentifier> getPortNames()
+//	{
+//		SortedSet<CommPortIdentifier> s = new TreeSet<>();
+//		Enumeration<CommPortIdentifier> e = CommPortIdentifier.getPortIdentifiers();
+//		while (e.hasMoreElements())
+//		{
+//			CommPortIdentifier i = (CommPortIdentifier) e.nextElement();
+//			System.out.println(i.getName());
+//			if (i.getPortType() == CommPortIdentifier.PORT_SERIAL) s.add(i.getName());
+//		}
+//		return s;
+//	}
 
-	private final CommPortIdentifier portID;
+	private CommPortIdentifier portID;
 	private final String appName;
 	private final int openTimeout;
 	private int baudRate;

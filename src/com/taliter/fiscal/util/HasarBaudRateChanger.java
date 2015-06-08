@@ -1,7 +1,7 @@
 package com.taliter.fiscal.util;
 
 import java.io.*;
-import javax.comm.*;
+import gnu.io.*;
 
 import com.taliter.fiscal.device.*;
 import com.taliter.fiscal.device.hasar.*;

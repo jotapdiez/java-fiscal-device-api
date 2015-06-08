@@ -1,6 +1,6 @@
 package com.taliter.fiscal.port.serial;
 
-import javax.comm.*;
+import gnu.io.*;
 
 import com.taliter.fiscal.port.*;
 

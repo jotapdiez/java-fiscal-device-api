@@ -1,14 +1,19 @@
 package com.taliter.fiscal.port.serial;
 
-import gnu.io.*;
+import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
+import gnu.io.NoSuchPortException;
 import gnu.io.PortInUseException;
+import gnu.io.SerialPort;
 import gnu.io.UnsupportedCommOperationException;
 
-import java.io.*;
-import java.util.*;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
-import com.taliter.fiscal.port.*;
+import com.taliter.fiscal.port.FiscalPort;
+import com.taliter.fiscal.port.FiscalPortTimeoutException;
 
 /** A FiscalPort implementation that uses the <code>javax.comm</code> API to communicate over serial ports. */
 public class SerialFiscalPort implements FiscalPort

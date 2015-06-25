@@ -1,10 +1,16 @@
 package com.taliter.fiscal.device.hasar;
 
-import java.math.*;
-import java.util.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
-import com.taliter.fiscal.device.*;
-import com.taliter.fiscal.util.*;
+import com.taliter.fiscal.device.FiscalPacket;
+import com.taliter.fiscal.util.ByteFormatter;
 
 /** An abstract base class for FiscalPacket implementations. */
 public abstract class AbstractFiscalPacket implements FiscalPacket
@@ -13,7 +19,7 @@ public abstract class AbstractFiscalPacket implements FiscalPacket
 
 	private static final byte[] EMPTY_FIELD = new byte[0];
 
-	private List fields = new ArrayList();
+	private List<byte[]> fields = new ArrayList<>();
 
 	public boolean equals(Object o)
 	{
@@ -31,8 +37,8 @@ public abstract class AbstractFiscalPacket implements FiscalPacket
 		AbstractFiscalPacket p;
 		try { p = (AbstractFiscalPacket) super.clone(); }
 		catch (CloneNotSupportedException e) { throw new Error(e.toString()); }
-		List f = new ArrayList(fields.size());
-		Iterator i = fields.iterator();
+		List<byte[]> f = new ArrayList<>(fields.size());
+		Iterator<byte[]> i = fields.iterator();
 		while (i.hasNext())
 		{
 			byte[] x = (byte[]) i.next();
@@ -118,7 +124,7 @@ public abstract class AbstractFiscalPacket implements FiscalPacket
 		}
 	}
 
-	public byte[] get(int field) { return (byte[]) fields.get(field); }
+	public byte[] get(int field) { return fields.get(field); }
 
 	public int getLength(int field) { return get(field).length; }
 
